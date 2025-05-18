@@ -1,12 +1,15 @@
-import { Ellipsis, Pencil, Trash2 } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
+import { Ellipsis, Pencil, Trash } from "lucide-react";
+interface CrudDropdownProps {
+  onDelete?: () => void;
+}
 
-export default function CrudDropdown() {
+export default function CrudDropdown({ onDelete }: CrudDropdownProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -17,8 +20,8 @@ export default function CrudDropdown() {
           <Pencil />
           Editar
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Trash2 />
+        <DropdownMenuItem onClick={onDelete}>
+          <Trash />
           Apagar
         </DropdownMenuItem>
       </DropdownMenuContent>

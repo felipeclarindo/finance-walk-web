@@ -1,24 +1,27 @@
-import { NavBarProps } from "@/interfaces";
 import Link from "next/link";
 
-export function NavBar(props: Readonly<NavBarProps>) {
-  const { active } = props;
-  const activeClass = "border-b-4 border-pink-600";
+interface NavBarProps {
+  active: "dashboard" | "movimentações" | "categorias";
+}
 
-  const links = [
-    { label: "dashboard", href: "/dashboard" },
-    { label: "transactions", href: "/transactions" },
-    { label: "categories", href: "/categories" },
-  ];
+const links = [
+  { label: "dashboard", href: "/dashboard" },
+  { label: "movimentações", href: "/transactions" },
+  { label: "categorias", href: "/categories" },
+];
+
+export default function NavBar(props: NavBarProps) {
+  const { active } = props;
+  const classActive = "border-b-4 border-primary";
 
   return (
-    <nav className="flex justify-between items-center bg-slate-900 p-6">
-      <h1 className="text-2xl font-bold">Finance Walk</h1>
-      <ul className="flex gap-4">
+    <nav className="flex justify-between bg-slate-900 px-6 pt-6">
+      <h1 className="text-2xl font-bold">FinanceWalk</h1>
+      <ul className="flex gap-12">
         {links.map((link) => (
           <li
             key={link.label}
-            className={active === link.label ? activeClass : ""}
+            className={active === link.label ? classActive : ""}
           >
             <Link href={link.href}>{link.label}</Link>
           </li>
@@ -26,8 +29,8 @@ export function NavBar(props: Readonly<NavBarProps>) {
       </ul>
       <img
         className="size-12 rounded-full"
-        src="http://github.com/felipeclarindo.png"
-        alt="GitHub Avatar"
+        src="http://github.com/joaocarloslima.png"
+        alt="avatar"
       />
     </nav>
   );

@@ -6,21 +6,21 @@ import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-export function DropdownMenu({
+function DropdownMenu({
   ...props
-}: Readonly<React.ComponentProps<typeof DropdownMenuPrimitive.Root>>) {
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 }
 
-export function DropdownMenuPortal({
+function DropdownMenuPortal({
   ...props
-}: Readonly<React.ComponentProps<typeof DropdownMenuPrimitive.Portal>>) {
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) {
   return (
     <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />
   );
 }
 
-export function DropdownMenuTrigger({
+function DropdownMenuTrigger({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
   return (
@@ -31,7 +31,7 @@ export function DropdownMenuTrigger({
   );
 }
 
-export function DropdownMenuContent({
+function DropdownMenuContent({
   className,
   sideOffset = 4,
   ...props
@@ -51,7 +51,7 @@ export function DropdownMenuContent({
   );
 }
 
-export function DropdownMenuGroup({
+function DropdownMenuGroup({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) {
   return (
@@ -59,7 +59,7 @@ export function DropdownMenuGroup({
   );
 }
 
-export function DropdownMenuItem({
+function DropdownMenuItem({
   className,
   inset,
   variant = "default",
@@ -82,7 +82,7 @@ export function DropdownMenuItem({
   );
 }
 
-export function DropdownMenuCheckboxItem({
+function DropdownMenuCheckboxItem({
   className,
   children,
   checked,
@@ -108,7 +108,7 @@ export function DropdownMenuCheckboxItem({
   );
 }
 
-export function DropdownMenuRadioGroup({
+function DropdownMenuRadioGroup({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) {
   return (
@@ -119,7 +119,7 @@ export function DropdownMenuRadioGroup({
   );
 }
 
-export function DropdownMenuRadioItem({
+function DropdownMenuRadioItem({
   className,
   children,
   ...props
@@ -143,7 +143,7 @@ export function DropdownMenuRadioItem({
   );
 }
 
-export function DropdownMenuLabel({
+function DropdownMenuLabel({
   className,
   inset,
   ...props
@@ -163,7 +163,7 @@ export function DropdownMenuLabel({
   );
 }
 
-export function DropdownMenuSeparator({
+function DropdownMenuSeparator({
   className,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Separator>) {
@@ -176,7 +176,7 @@ export function DropdownMenuSeparator({
   );
 }
 
-export function DropdownMenuShortcut({
+function DropdownMenuShortcut({
   className,
   ...props
 }: React.ComponentProps<"span">) {
@@ -192,13 +192,13 @@ export function DropdownMenuShortcut({
   );
 }
 
-export function DropdownMenuSub({
+function DropdownMenuSub({
   ...props
-}: Readonly<React.ComponentProps<typeof DropdownMenuPrimitive.Sub>>) {
+}: React.ComponentProps<typeof DropdownMenuPrimitive.Sub>) {
   return <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />;
 }
 
-export function DropdownMenuSubTrigger({
+function DropdownMenuSubTrigger({
   className,
   inset,
   children,
@@ -222,7 +222,7 @@ export function DropdownMenuSubTrigger({
   );
 }
 
-export function DropdownMenuSubContent({
+function DropdownMenuSubContent({
   className,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.SubContent>) {
@@ -230,10 +230,28 @@ export function DropdownMenuSubContent({
     <DropdownMenuPrimitive.SubContent
       data-slot="dropdown-menu-sub-content"
       className={cn(
-        "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]: [side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-hidden rounded-md border p-1 shadow-lg",
+        "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-hidden rounded-md border p-1 shadow-lg",
         className
       )}
       {...props}
     />
   );
 }
+
+export {
+  DropdownMenu,
+  DropdownMenuPortal,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+};
